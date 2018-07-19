@@ -58,7 +58,7 @@ function gotStream(stream) {
         title: 'Sound Meter',
         showlegend: false,
         "titlefont": {
-            "size": 30
+            "size": 36
         }
     };
     Plotly.newPlot('chart', chartData, layout, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
@@ -78,7 +78,7 @@ function gotStream(stream) {
         title: 'Total Sound Meter',
         showlegend: false,
         "titlefont": {
-            "size": 30
+            "size": 36
         }
     };
     //Plotly.newPlot('chart2', chartData2, layout2, {displayModeBar:false},{displaylogo: false},{scrollZoom:false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
