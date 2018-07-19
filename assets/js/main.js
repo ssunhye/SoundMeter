@@ -59,7 +59,8 @@ function gotStream(stream) {
         showlegend: false
     };
     Plotly.newPlot('chart', chartData, layout, {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
-    
+    //Plotly.newPlot('chart', chartData, layout, {displayModeBar:false});
+
     // Plotly.plot('chart',[{
     //     y:[data],
     //     type:'line'
@@ -74,10 +75,10 @@ function gotStream(stream) {
         title: 'Total Sound Meter',
         showlegend: false
     };
-    //Plotly.newPlot('chart2', chartData2, layout2, {displaylogo: false},{scrollZoom:false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
-    Plotly.newPlot('chart2', chartData2, layout2, {displayModeBar:false});
+    //Plotly.newPlot('chart2', chartData2, layout2, {displayModeBar:false},{displaylogo: false},{scrollZoom:false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+    Plotly.newPlot('chart2', chartData2, layout2, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
 
-    // Plotly.plot('chart2',[{
+    // Plotly.plot('chart2',[{v
     //     y:[data],
     //     type:'line'
     // }]);
