@@ -40,7 +40,7 @@ var mediaStreamSource = null;
 var data=0;
 var cnt = 0;
 var desc=null;
-
+var ref=70;
 function gotStream(stream) {
     mediaStreamSource = audioContext.createMediaStreamSource(stream);
 
@@ -53,7 +53,12 @@ function gotStream(stream) {
         y:[data],
         type: 'line'
     };
-    var chartData = [trace1];
+    var trace2 = {
+        y:[ref],
+        type:'line'
+    };
+
+    var chartData = [trace1, trace2];
     var layout={
         title: 'Sound Meter',
         showlegend: false,
@@ -69,11 +74,16 @@ function gotStream(stream) {
     //     type:'line'
     // }]);
 
-    var trace2 = {
+    var trace3 = {
         y:[data],
         type: 'line'
     };
-    var chartData2 = [trace2];
+    var trace4 = {
+        y:[ref],
+        type:'line'
+    };
+
+    var chartData2 = [trace3, trace4];
     var layout2={
         title: 'Total Sound Meter',
         showlegend: false,
@@ -83,11 +93,6 @@ function gotStream(stream) {
     };
     //Plotly.newPlot('chart2', chartData2, layout2, {displayModeBar:false},{displaylogo: false},{scrollZoom:false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
     Plotly.newPlot('chart2', chartData2, layout2, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
-
-    // Plotly.plot('chart2',[{v
-    //     y:[data],
-    //     type:'line'
-    // }]);
 
     setInterval(function(){
         data=meter.volume.toFixed(3);
@@ -133,7 +138,7 @@ function gotStream(stream) {
         document.getElementById("desc").innerHTML = desc;
         document.getElementById("show").innerHTML = data+"dB";
 
-        Plotly.extendTraces('chart',{y:[[data]]}, [0]);
+        Plotly.extendTraces('chart',{y:[[data], [ref]]}, [0, 1]);
         ++cnt;
         if(cnt>40){
             Plotly.relayout('chart',{
@@ -143,6 +148,6 @@ function gotStream(stream) {
             })
         }
 
-        Plotly.extendTraces('chart2',{y:[[data]]}, [0]);
+        Plotly.extendTraces('chart2',{y:[[data], [ref]]}, [0,1]);
     },200);
 }
