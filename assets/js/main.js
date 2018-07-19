@@ -56,7 +56,7 @@ function gotStream(stream) {
     var chartData = [trace1];
     var layout={
         title: 'Sound Meter',
-        showlegend: true
+        showlegend: false
     };
     Plotly.newPlot('chart', chartData, layout, {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
     
@@ -72,7 +72,7 @@ function gotStream(stream) {
     var chartData2 = [trace2];
     var layout2={
         title: 'Total Sound Meter',
-        showlegend: true
+        showlegend: false
     };
     Plotly.newPlot('chart2', chartData2, layout2, {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
     
