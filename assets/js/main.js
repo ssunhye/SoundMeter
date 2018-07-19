@@ -49,16 +49,38 @@ function gotStream(stream) {
     // data=meter.volume;
     data=meter.volume.toFixed(3);
 
-    Plotly.plot('chart',[{
+    var trace1 = {
         y:[data],
-        type:'line'
-    }]);
+        type: 'line'
+    };
+    var chartData = [trace1];
+    var layout={
+        title: 'Sound Meter',
+        showlegend: true
+    };
+    Plotly.newPlot('chart', chartData, layout, {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+    
+    // Plotly.plot('chart',[{
+    //     y:[data],
+    //     type:'line'
+    // }]);
 
-
-    Plotly.plot('chart2',[{
+    var trace2 = {
         y:[data],
-        type:'line'
-    }]);
+        type: 'line'
+    };
+    var chartData2 = [trace2];
+    var layout2={
+        title: 'Total Sound Meter',
+        showlegend: true
+    };
+    Plotly.newPlot('chart2', chartData2, layout2, {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+    
+
+    // Plotly.plot('chart2',[{
+    //     y:[data],
+    //     type:'line'
+    // }]);
 
     setInterval(function(){
         data=meter.volume.toFixed(3);
