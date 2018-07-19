@@ -6,7 +6,7 @@ window.onload = function() {
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
 	    audioContext = new AudioContext();
     }catch(e){
-        this.alert('Web Audio API is not supported in this browser');
+        this.alert('이 브라우저에서는 Web Audio API가 지원되지 않습니다. 크롬이나 사파리를 이용해 주세요.');
     }
 
     try {
@@ -58,7 +58,7 @@ function gotStream(stream) {
         title: 'Sound Meter',
         showlegend: false
     };
-    Plotly.newPlot('chart', chartData, layout, {modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
+    Plotly.newPlot('chart', chartData, layout, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
     //Plotly.newPlot('chart', chartData, layout, {displayModeBar:false});
 
     // Plotly.plot('chart',[{
