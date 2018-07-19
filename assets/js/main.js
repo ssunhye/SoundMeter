@@ -46,7 +46,7 @@ function gotStream(stream) {
 
     meter = createAudioMeter(audioContext);
     mediaStreamSource.connect(meter);
-    // data=meter.volume;
+    
     data=meter.volume.toFixed(3);
 
     var trace1 = {
@@ -67,12 +67,6 @@ function gotStream(stream) {
         }
     };
     Plotly.newPlot('chart', chartData, layout, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
-    //Plotly.newPlot('chart', chartData, layout, {displayModeBar:false});
-
-    // Plotly.plot('chart',[{
-    //     y:[data],
-    //     type:'line'
-    // }]);
 
     var trace3 = {
         y:[data],
@@ -91,12 +85,10 @@ function gotStream(stream) {
             "size": 36
         }
     };
-    //Plotly.newPlot('chart2', chartData2, layout2, {displayModeBar:false},{displaylogo: false},{scrollZoom:false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
     Plotly.newPlot('chart2', chartData2, layout2, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
 
     setInterval(function(){
         data=meter.volume.toFixed(3);
-        // data=meter.volume;
 
         if(data<10){
             desc="숨쉬는 소리";
