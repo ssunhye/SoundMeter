@@ -51,7 +51,7 @@ function gotStream(stream) {
 
     var trace1 = {
         y:[data],
-        type: 'line'
+        type: 'line',
     };
     var trace2 = {
         y:[ref],
@@ -60,11 +60,14 @@ function gotStream(stream) {
 
     var chartData = [trace1, trace2];
     var layout={
-        title: 'Sound Meter',
+        title: '실시간 그래프',
         showlegend: false,
         "titlefont": {
-            "size": 36
-        }
+            "size": 36,
+            "color":'#31708f'
+        },
+        plot_bgcolor:'fff',
+        default:"pan"
     };
     Plotly.newPlot('chart', chartData, layout, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
 
@@ -79,10 +82,11 @@ function gotStream(stream) {
 
     var chartData2 = [trace3, trace4];
     var layout2={
-        title: 'Total Sound Meter',
+        title: '전체 그래프',
         showlegend: false,
         "titlefont": {
-            "size": 36
+            "size": 36,
+            "color":'#31708f'
         }
     };
     Plotly.newPlot('chart2', chartData2, layout2, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
