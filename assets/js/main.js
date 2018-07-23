@@ -55,7 +55,8 @@ function gotStream(stream) {
     };
     var trace2 = {
         y:[ref],
-        type:'line'
+        type:'line',
+        mode:'lines',
     };
 
     var chartData = [trace1, trace2];
@@ -66,8 +67,22 @@ function gotStream(stream) {
             "size": 36,
             "color":'#31708f'
         },
-        plot_bgcolor:'fff',
-        default:"pan"
+        annotations:[
+            {
+                xref:'paper',
+                x:0.07,
+                y:70,
+                xanchor:'right',
+                yanchor:'bottom',
+                text:'기준선',
+                showarrow:false,
+                font:{
+                    family:'Arial',
+                    size:20,
+                    color:'red'
+                }
+            }
+        ]
     };
     Plotly.newPlot('chart', chartData, layout, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['select2d', 'lasso2d', 'pan2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
 
@@ -77,7 +92,8 @@ function gotStream(stream) {
     };
     var trace4 = {
         y:[ref],
-        type:'line'
+        type:'line',
+        mode:'lines'
     };
 
     var chartData2 = [trace3, trace4];
