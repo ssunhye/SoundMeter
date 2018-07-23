@@ -1,308 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>Volume Meter Sample</title>
     <!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/nav_base.css" rel="stylesheet" />
     <!-- JS Files-->
     <script src="assets/js/plotly.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 
-	<style>
+    <style>
 
-        @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-        .navbar {
-            padding: 15px 10px;
-            background: #fff;
-            border: none;
-            border-radius: 0;
-            margin-bottom: 40px;
-            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-btn {
-            box-shadow: none;
-            outline: none !important;
-            border: none;
-        }
-
-        .line {
-            width: 100%;
-            height: 1px;
-            border-bottom: 1px dashed #ddd;
-            margin: 40px 0;
-        }
-
-        /* ---------------------------------------------------
-            SIDEBAR STYLE
-        ----------------------------------------------------- */
-
-        .wrapper {
-            display: flex;
-            width: 100%;
-            align-items: stretch;
-            perspective: 1500px;
-        }
-
-        #sidebar {
-            min-width: 250px;
-            max-width: 250px;
-            background: #7386D5;
-            color: #fff;
-            transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-            transform-origin: bottom left;
-        }
-
-        #sidebar.active {
-            margin-left: -250px;
-            transform: rotateY(100deg);
-        }
-
-        #sidebar .sidebar-header {
-            padding: 20px;
-            background: #6d7fcc;
-        }
-
-        #sidebar ul.components {
-            padding: 20px 0;
-            border-bottom: 1px solid #47748b;
-        }
-
-        #sidebar ul p {
-            color: #fff;
-            padding: 10px;
-        }
-
-        #sidebar ul li a {
-            padding: 10px;
-            font-size: 1.1em;
-            display: block;
-        }
-        #sidebar ul li a:hover {
-            color: #7386D5;
-            background: #fff;
-        }
-
-        #sidebar ul li.active > a, a[aria-expanded="true"] {
-            color: #fff;
-            background: #6d7fcc;
-        }
-
-
-        a[data-toggle="collapse"] {
-            position: relative;
-        }
-
-        .dropdown-toggle::after {
-            display: block;
-            position: absolute;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-        }
-
-        ul ul a {
-            font-size: 0.9em !important;
-            padding-left: 30px !important;
-            background: #6d7fcc;
-        }
-
-        ul.CTAs {
-            padding: 20px;
-        }
-
-        ul.CTAs a {
-            text-align: center;
-            font-size: 0.9em !important;
-            display: block;
-            border-radius: 5px;
-            margin-bottom: 5px;
-        }
-
-        a.download {
-            background: #fff;
-            color: #7386D5;
-        }
-
-        a.article, a.article:hover {
-            background: #6d7fcc !important;
-            color: #fff !important;
-        }
-
-
-
-        /* ---------------------------------------------------
-            CONTENT STYLE
-        ----------------------------------------------------- */
-        #content {
-            width: 100%;
-            padding: 20px;
-            min-height: 100vh;
-            transition: all 0.3s;
-        }
-
-        #sidebarCollapse {
-            width: 40px;
-            height: 40px;
-            background: #f5f5f5;
-            cursor: pointer;
-        }
-
-        #sidebarCollapse span {
-            width: 80%;
-            height: 2px;
-            margin: 0 auto;
-            display: block;
-            background: #555;
-            transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
-            transition-delay: 0.2s;
-        }
-
-        #sidebarCollapse span:first-of-type {
-            transform: rotate(45deg) translate(2px, 2px);
-        }
-        #sidebarCollapse span:nth-of-type(2) {
-            opacity: 0;
-        }
-        #sidebarCollapse span:last-of-type {
-            transform: rotate(-45deg) translate(1px, -1px);
-        }
-
-
-        #sidebarCollapse.active span {
-            transform: none;
-            opacity: 1;
-            margin: 5px auto;
-        }
-
-
-        /* ---------------------------------------------------
-            MEDIAQUERIES
-        ----------------------------------------------------- */
-        @media (max-width: 768px) {
-            #sidebar {
-                margin-left: -250px;
-                transform: rotateY(90deg);
-            }
-            #sidebar.active {
-                margin-left: 0;
-                transform: none;
-            }
-            #sidebarCollapse span:first-of-type,
-            #sidebarCollapse span:nth-of-type(2),
-            #sidebarCollapse span:last-of-type {
-                transform: none;
-                opacity: 1;
-                margin: 5px auto;
-            }
-            #sidebarCollapse.active span {
-                margin: 0 auto;
-            }
-            #sidebarCollapse.active span:first-of-type {
-                transform: rotate(45deg) translate(2px, 2px);
-            }
-            #sidebarCollapse.active span:nth-of-type(2) {
-                opacity: 0;
-            }
-            #sidebarCollapse.active span:last-of-type {
-                transform: rotate(-45deg) translate(1px, -1px);
-            }
-
-        }
-
-        .line2{
-            font-weight:bold;
-            font-size:40px;
-            padding:0px 0px 0px 10px;
+        body {
+            background: #d9edf7;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
             margin:0;
-            text-decoration:none;
         }
-        #chart{
-            padding: 20px 0px 0px 0px;
-            margin:0;
-            height:650px;
-            width:100%;
+       
+        #chart {
+            margin: 40px 0px 0px 0px;
+            padding: 0;
+            height: 650px;
         }
-        #chart2{
-            padding: 20px 0px 0px 0px;
-            margin:0;
-            height:650px;
+    
+        #chart2 {
+            margin: 0;
+            padding: 0;
+            height: 650px;
         }
-        a{
-            display:block;
+
+        p{
+            color: #31708f;
             text-align:left;
-            text-decoration:none;
+            font-size : 30px;
+            margin : 0px 0px 0px 150px;
         }
-        #desc{
-            font-size:30px;
-            display:inline;
-        }
-        #show{
-            font-size:70px;
-            display:inline;
-        }
-        body{
-            font-weight:bold;
+        
+        h1{
+            color: #31708f;
+            text-align:left;
+            font-size : 40px;
+            margin : 0px 0px 0px 30px;
             font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
-            /* background: #d9edf7; */
         }
-    </style>
-</head>
+    
+        .main_common{ 
+            display: inline-block;
+        }
+    
+        .content {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .main_1{
+            margin : 30px 0px 0px 200px;
+            font-size : 30px;
+            float : center;
+            color : #31708f;
+        }
+        
+        .main_3{
+            margin : 0px 10px 0px 0px;
+            font-size : 70px;
+            float: right;
+            text-align: right;
+            color: #31708f;
+            
+        }
 
+        #space{
+            font-size:10;
+        }
+        
+    </style>    
+</head>
+    
 <body>
-<div class="wrapper">
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>설정</h3>
-        </div>
-        <ul class="list-unstyled components">
-            <li>
-                <a href="#">기준선 변경</a>
-            </li>
-            <li>
-                <a href="#">오차 보정</a>
-            </li>
-        </ul>
-    </nav>
-    <div id="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-                <button type="button" id="sidebarCollapse" class="navbar-btn">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="line2">
-                    <a href="https://ssunhye.github.io/SoundMeter/sound.html">Sound Level</a>
-                </div>
-            </div>
-            <div class="container-fluid" style="padding:0px;">
-                <div class="panel-group">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            
-                        </div>
-                        <div class="panel-body">
-                            <div style="float:right; width:33%; color:#31708f;">
-                                <p id="show"></p>
-                            </div>
-                            <div style="position:relative; height:90px; text-align:end; float:right; width:47%;color:#31708f;">
-                                <p id="desc" style="position:absolute; bottom:0px; right:20px;"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div id="chart"></div>
-        <div id="chart2"></div>
-    </div>
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
 </div>
 
+<!-- Page Content -->
+<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div><button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button></div>
+
+<script>
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+    }
+</script>
+
+<strong><h1>Sound Level</h1>
+
+<div class="main_1 main_common" id="desc"><p class="content"></p></div>
+<div class="main_3 main_common" id="show"></div></strong>
+
+<div id="chart"></div>
+<div id="chart2"></div>
+    
 <!--   JS Files   -->
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/bootstrap.js"></script>
@@ -312,13 +123,5 @@
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <!-- Popper.JS -->
 <script src="assets/js/popper.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-            $(this).toggleClass('active');
-        });
-    });
-</script>
 </body>
 </html>
