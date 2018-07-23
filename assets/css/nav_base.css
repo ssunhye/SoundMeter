@@ -297,6 +297,7 @@ a {
     text-align: center;
     cursor: pointer;
     white-space: nowrap;
+    margin:10px 0px 10px 0px;
 }
 .w3-btn:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
@@ -1065,10 +1066,12 @@ a {
 }
 .w3-xlarge {
     font-size: 24px!important;
+    font-family: 'Daum';
 }
 .w3-xxlarge {
     font-size: 36px!important;
-    padding: 0px 0px 20px 20px;
+    padding: 0px 0px 0px 20px;
+    font-family: 'Daum';
 }
 .w3-xxxlarge {
     font-size: 48px!important;

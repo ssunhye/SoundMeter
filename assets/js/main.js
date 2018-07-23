@@ -41,13 +41,18 @@ var data=0;
 var cnt = 0;
 var desc=null;
 var ref=70;
+var setVal=0;
+
 function gotStream(stream) {
     mediaStreamSource = audioContext.createMediaStreamSource(stream);
 
     meter = createAudioMeter(audioContext);
     mediaStreamSource.connect(meter);
     
-    data=meter.volume.toFixed(3);
+    data=setVal+meter.volume;
+    data=data.toFixed(3);
+    // data=meter.volume.toFixed(3)+setVal;
+    // data=setVal;
 
     var trace1 = {
         y:[data],
@@ -108,7 +113,10 @@ function gotStream(stream) {
     Plotly.newPlot('chart2', chartData2, layout2, {scrollZoom:false, displaylogo: false, modeBarButtonsToRemove: ['select2d', 'lasso2d', 'pan2d', 'toImage', 'sendDataToCloud', 'resetScale2d', 'hoverClosestCartesian', 'toggleSpikelines', 'hoverCompareCartesian', 'zoom2d']});
 
     setInterval(function(){
-        data=meter.volume.toFixed(3);
+        data=setVal+meter.volume;
+        data=data.toFixed(3);
+        // data=meter.volume.toFixed(3)+setVal;
+        // data=setVal;
 
         if(data<10){
             desc="숨쉬는 소리";
@@ -162,4 +170,12 @@ function gotStream(stream) {
 
         Plotly.extendTraces('chart2',{y:[[data], [ref]]}, [0,1]);
     },200);
+}
+function plus(){
+    ++setVal;
+    document.getElementById("set").innerHTML = setVal;
+}
+function minus(){
+    --setVal;
+    document.getElementById("set").innerHTML = setVal;
 }
