@@ -1295,6 +1295,7 @@ a {
 .w3-white {
     color: #31708f!important;
     background-color: #d9edf7!important;
+    display:inline;
 }
 .w3-black,
 .w3-hover-black:hover {

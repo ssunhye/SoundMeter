@@ -44,6 +44,7 @@
         h1{
             color: #31708f;
             text-align:left;
+            display: inline;
             font-size : 40px;
             margin : 0px 0px 0px 30px;
             font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
@@ -91,7 +92,7 @@
 
 <!-- Page Content -->
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
-<div><button class="w3-button w3-white w3-jumbo" onclick="w3_open()">&#9776;</button></div>
+<button class="w3-button w3-white w3-jumbo" onclick="w3_open()">&#9776;</button>
 
 <script>
     function w3_open() {
@@ -105,13 +106,14 @@
     }
 </script>
 
-<strong><h1>Sound Level</h1>
-
-<div class="main_1 main_common" id="desc"><p class="content"></p></div>
-<div class="main_3 main_common" id="show"></div></strong>
-
+<h1>Sound Level</h1>
+<div style="display: block;">
+    <strong>
+    <div class="main_1 main_common" id="desc"><p class="content"></p></div>
+    <div class="main_3 main_common" id="show"></div></strong>
+</div>
 <div id="chart"></div>
-<div id="chart2"></div>
+<div id="chart2"></div>        
     
 <!--   JS Files   -->
 <script src="assets/js/bootstrap.min.js"></script>
