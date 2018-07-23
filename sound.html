@@ -12,6 +12,10 @@
     <script src="assets/js/jquery.min.js"></script>
 
     <style>
+        @font-face {
+            font-family: 'Daum';
+            src:  url(assets/fonts/Daum_SemiBold.ttf) format('truetype');
+        }
 
         body {
             background: #d9edf7;
@@ -20,16 +24,17 @@
             -o-background-size: cover;
             background-size: cover;
             margin:0;
+            font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
         }
        
         #chart {
-            margin: 40px 0px 0px 0px;
+            margin: 110px 0px 0px 0px;
             padding: 0;
             height: 650px;
         }
     
         #chart2 {
-            margin: 0;
+            margin: 0px 0px 0px 0px;
             padding: 0;
             height: 650px;
         }
@@ -44,10 +49,10 @@
         h1{
             color: #31708f;
             text-align:left;
-            display: inline;
+            display: inline-block;
             font-size : 40px;
             margin : 0px 0px 0px 30px;
-            font-family:"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
+            font-family :"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
         }
     
         .main_common{ 
@@ -60,14 +65,14 @@
             text-align: center;
         }
         .main_1{
-            margin : 30px 0px 0px 200px;
+            margin : 40px 10px 0px 200px;
             font-size : 30px;
-            float : center;
+            float : right;
             color : #31708f;
         }
         
         .main_3{
-            margin : 0px 10px 0px 0px;
+            margin : 0px 10px 15px 0px;
             font-size : 70px;
             float: right;
             text-align: right;
@@ -77,6 +82,16 @@
 
         #space{
             font-size:10;
+        }
+
+        .title{
+            color: #31708f;
+            text-align:left;
+            display: inline-block;
+            font-size : 40px;
+            margin : 0px 0px 0px 10px;
+            padding-top:20px;
+            font-family:Daum,"돋움", dotum, "굴림", gulim, arial, helvetica, sans-serif;
         }
         
     </style>    
@@ -92,7 +107,7 @@
 
 <!-- Page Content -->
 <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
-<button class="w3-button w3-white w3-jumbo" onclick="w3_open()">&#9776;</button>
+<button class="w3-button w3-white w3-xxlarge" onclick="w3_open()">&#9776;</button>
 
 <script>
     function w3_open() {
@@ -106,11 +121,11 @@
     }
 </script>
 
-<h1>Sound Level</h1>
+<strong><div class="title">Sound Level</div></strong>
 <div style="display: block;">
     <strong>
-    <div class="main_1 main_common" id="desc"><p class="content"></p></div>
-    <div class="main_3 main_common" id="show"></div></strong>
+    <div class="main_3 main_common" id="show"></div>
+    <div class="main_1 main_common" id="desc"><p class="content"></p></div></strong>
 </div>
 <div id="chart"></div>
 <div id="chart2"></div>        
