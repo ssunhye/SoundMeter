@@ -416,7 +416,7 @@ a {
 }
 .w3-sidebar {
     height: 100%;
-    width: 200px;
+    width: 60%;
     background-color: #fff;
     position: fixed!important;
     z-index: 1;
@@ -1293,8 +1293,8 @@ a {
 }
 .w3-hover-white:hover,
 .w3-white {
-    color: #000!important;
-    background-color: #fff!important;
+    color: #31708f!important;
+    background-color: #d9edf7!important;
 }
 .w3-black,
 .w3-hover-black:hover {
