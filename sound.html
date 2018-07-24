@@ -8,9 +8,11 @@
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/nav_base.css" rel="stylesheet" />
     <link href="assets/css/style5.css" rel="stylesheet" />
+    <link href="assets/css/jquery.mobile-1.4.5.min.css" rel="stylesheet" />
     <!-- JS Files-->
     <script src="assets/js/plotly.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.mobile-1.4.5.min.js"></script>
 
     <style>
         @font-face {
@@ -59,12 +61,6 @@
         .main_common{ 
             display: inline-block;
         }
-    
-        .content {
-            display: inline-block;
-            vertical-align: middle;
-            text-align: center;
-        }
         .main_1{
             margin : 40px 10px 0px 200px;
             font-size : 30px;
@@ -81,10 +77,6 @@
             
         }
 
-        #space{
-            font-size:10;
-        }
-
         .title{
             color: #31708f;
             text-align:left;
@@ -99,67 +91,18 @@
 </head>
     
 <body>
-<!-- Sidebar -->
-<div class="w3-sidebar w3-bar-block w3-animate-left" style="display:none;z-index:5" id="mySidebar">
-    <div class="main_common w3-jumbo" style="padding:10px 0px 0px 30px; font-family:Daum">설정</div>
-    <button class="w3-button w3-jumbo main_common" style="float:right" onclick="w3_close()">&times;</button>
-    <button class="w3-button w3-block w3-left-align w3-xxlarge" onclick="change()">기준선 변경</button>
-    <div id="acc" class="w3-bar-block w3-hide">
-        <a href="#" class="w3-bar-item w3-button w3-xlarge">a1</a>
-        <a href="#" class="w3-bar-item w3-button w3-xlarge">a2</a>
-    </div>
-    <button class="w3-button w3-block w3-left-align w3-xxlarge" onclick="setting()">오차 보정</button>
-    <div id="acc2" class="w3-bar-block w3-hide">
-        <div class="main_common w3-input w3-xlarge" id="set"></div>
-        <button type="button" class="btn btn-default" onclick="plus()"><span class="glyphicon glyphicon-plus"></span></button>
-        <button type="button" class="btn btn-default" onclick="minus()"><span class="glyphicon glyphicon-minus"></span></button>
-    </div>
-</div>
-
-<!-- Page Content -->
-<div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
-<button class="w3-button w3-white w3-xxlarge" style="padding:0px 0px 20px 20px" onclick="w3_open()">&#9776;</button>
-
-<script>
-    function w3_open() {
-        document.getElementById("mySidebar").style.display = "block";
-        document.getElementById("myOverlay").style.display = "block";
-    }
-
-    function w3_close() {
-        document.getElementById("mySidebar").style.display = "none";
-        document.getElementById("myOverlay").style.display = "none";
-    }
-    function change() {
-        var x = document.getElementById("acc");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-            x.previousElementSibling.className += " w3-white";
-        } else { 
-            x.className = x.className.replace(" w3-show", "");
-            x.previousElementSibling.className = 
-            x.previousElementSibling.className.replace(" w3-white", "");
-        }
-    }
-    function setting() {
-        var x = document.getElementById("acc2");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-            x.previousElementSibling.className += " w3-white";
-        } else { 
-            x.className = x.className.replace(" w3-show", "");
-            x.previousElementSibling.className = 
-            x.previousElementSibling.className.replace(" w3-white", "");
-        }
-        document.getElementById("set").innerHTML = setVal;
-    }
-</script>
-
 <strong><div class="title">Sound Level</div></strong>
 <div style="display: block;">
     <strong>
     <div class="main_3 main_common" id="show"></div>
     <div class="main_1 main_common" id="desc"><p class="content"></p></div></strong>
+    <div data-role="main" class="ui-content">
+        <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">오차 보정</a>
+        <div data-role="popup" id="myPopup" class="ui-content">
+            <a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Close</a>
+            <p>휴대폰마다 측정값이 다를 수 있으니 오차를 보정해주세요.</p>
+        </div>
+    </div>
 </div>
 <div id="chart"></div>
 <div id="chart2"></div>        
@@ -173,15 +116,6 @@
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <!-- Popper.JS -->
 <script src="assets/js/popper.min.js"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('#sidebarCollapse').on('click', function () {
-            $('#sidebar').toggleClass('active');
-            $(this).toggleClass('active');
-        });
-    });
-</script>
 
 </body>
 </html>
