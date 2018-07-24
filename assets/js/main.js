@@ -30,6 +30,7 @@ window.onload = function() {
     } catch (e) {
         alert('getUserMedia threw exception :' + e);
     }
+    document.getElementById("set").innerHTML = setVal;
 }
 
 function didntGetStream() {
