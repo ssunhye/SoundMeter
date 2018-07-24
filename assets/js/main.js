@@ -57,12 +57,12 @@ function gotStream(stream) {
 
     var trace1 = {
         y:[data],
-        name:'기준선',
         type: 'line',
     };
     var trace2 = {
         y:[ref],
         type:'line',
+        name:'기준선',
         mode:'lines',
     };
 
@@ -100,6 +100,7 @@ function gotStream(stream) {
     var trace4 = {
         y:[ref],
         type:'line',
+        name:'기준선',
         mode:'lines'
     };
 
