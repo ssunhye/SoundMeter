@@ -56,6 +56,7 @@ function gotStream(stream) {
 
     var trace1 = {
         y:[data],
+        name:'기준선',
         type: 'line',
     };
     var trace2 = {
