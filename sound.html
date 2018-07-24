@@ -63,14 +63,14 @@
             display: inline-block;
         }
         .main_1{
-            margin : 40px 10px 0px 200px;
+            margin : 40px 10px 0px 40px;
             font-size : 30px;
             float : right;
             color : #31708f;
         }
         
-        .main_3{
-            margin : 0px 10px 15px 0px;
+        .main_2{
+            margin : 0px 10px 0px 0px;
             font-size : 70px;
             float: right;
             text-align: right;
@@ -100,20 +100,20 @@
 <strong><div class="title">Sound Level</div></strong>
 <div style="display: block;">
     <strong>
-    <p style="display:inline-block; margin:50px 0px 0px 20px; font-size:30px;">오차 보정 : </p>
-    <div class="main_common colorfont" id="set" style="font-size: 35px; margin: 40px 0px 0px 15px;"></div>
-    <div class="main_common" id="plus" style="margin:0px 0px 40px 50px;">
+    <p style="display:inline-block; margin:10px 0px 0px 0px; font-size:35px;">오차 보정 : </p>
+    <div class="main_common colorfont" id="set" style="font-size: 40px; margin: 50px 0px 0px 15px;"></div>
+    <div class="main_common" id="plus" style="padding:0px 0px 40px 45px;">
         <button type="button" class="btn btn-info btn-lg" onclick="plus()">
             <span class="glyphicon glyphicon-plus"></span> 
         </button>
     </div>
-    <div class="main_common" id="minus" style="margin:0px 0px 40px 20px;">
-        <button type="button" class="btn btn-info btn-lg" onclick="plus()">
+    <div class="main_common" id="minus" style="padding:0px 0px 40px 20px;">
+        <button type="button" class="btn btn-info btn-lg" onclick="minus()">
             <span class="glyphicon glyphicon-minus"></span> 
         </button>
     </div>
-    <div class="main_3 main_common" id="show"></div>
-    <div class="main_1 main_common" id="desc"><p class="content"></p></div></strong>
+    <div class="main_2 main_common fontcolor" id="show"></div>
+    <div class="main_1 main_common fontcolor" id="desc"><p class="content"></p></div>
 </div>
 <div id="chart"></div>
 <div id="chart2"></div>        
