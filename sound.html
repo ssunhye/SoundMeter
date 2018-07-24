@@ -63,7 +63,8 @@
             display: inline-block;
         }
         .main_1{
-            margin : 40px 10px 0px 40px;
+            margin : 40px 10px 0px 20px;
+            padding : 20px 0px 0px 0px;
             font-size : 30px;
             float : right;
             color : #31708f;
@@ -71,6 +72,7 @@
         
         .main_2{
             margin : 0px 10px 0px 0px;
+            padding : 20px 0px 0px 0px;
             font-size : 70px;
             float: right;
             text-align: right;
@@ -102,14 +104,19 @@
     <strong>
     <p style="display:inline-block; margin:10px 0px 0px 0px; font-size:35px;">오차 보정 : </p>
     <div class="main_common colorfont" id="set" style="font-size: 40px; margin: 50px 0px 0px 15px;"></div>
-    <div class="main_common" id="plus" style="padding:0px 0px 40px 45px;">
+    <div class="main_common" id="plus" style="padding:0px 0px 40px 25px;">
         <button type="button" class="btn btn-info btn-lg" onclick="plus()">
             <span class="glyphicon glyphicon-plus"></span> 
         </button>
     </div>
-    <div class="main_common" id="minus" style="padding:0px 0px 40px 20px;">
+    <div class="main_common" id="minus" style="padding:0px 0px 40px 10px;">
         <button type="button" class="btn btn-info btn-lg" onclick="minus()">
             <span class="glyphicon glyphicon-minus"></span> 
+        </button>
+    </div>
+    <div class="main_common" id="minus" style="padding:0px 0px 40px 10px;">
+        <button type="button" class="btn btn-info btn-lg" onclick="reset()">
+            <span class="glyphicon glyphicon-refresh"></span> 
         </button>
     </div>
     <div class="main_2 main_common fontcolor" id="show"></div>

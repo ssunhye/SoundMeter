@@ -181,3 +181,7 @@ function minus(){
     --setVal;
     document.getElementById("set").innerHTML = setVal;
 }
+function reset(){
+    setVal=0;
+    document.getElementById("set").innerHTML = setVal;
+}
