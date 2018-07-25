@@ -186,3 +186,7 @@ function reset(){
     setVal=0;
     document.getElementById("set").innerHTML = setVal;
 }
+
+function add(){
+    
+}
